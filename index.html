@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mention.js by jakiestfu</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/jakiestfu/Mention.js">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/jakiestfu/Mention.js/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/jakiestfu/Mention.js/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Mention.js</h1>
+          <p> Lightweight wrapper for adding @user mention functionality to Twitter Bootstraps Typeahead plugin</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/jakiestfu">jakiestfu</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>Mention.js</h1>
+
+<p>Lightweight wrapper for adding <a href="https://github.com/user" class="user-mention">@user</a> mention functionality to Twitter Bootstraps Typeahead plugin</p>
+
+<h2>Dependencies</h2>
+
+<ul>
+<li><a href="https://github.com/jquery/jquery" target="_blank">jQuery</a></li>
+<li><a href="https://github.com/twitter/bootstrap" target="_blank">Typeahead</a></li>
+</ul><h2>Usage</h2>
+
+<pre><code>Mention.apply({
+    target: "#multi-users",
+    users: ["ashley", "roger", "frecklefart123"]
+});
+
+</code></pre>
+
+<h2>Defaults</h2>
+
+<pre><code>Mention.apply({
+    target: "", // Element Selector
+    users: [], // Array of Usernames to search against
+    typeaheadOpts: { // Settings for Typeahead
+        matcher: _matcher, // Mention.js's custom matcher function, don't change
+        updater: _updater, // Mention.js's custom updater function, don't change
+    }
+});
+
+</code></pre>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
