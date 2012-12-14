@@ -2,7 +2,7 @@
 
 Lightweight wrapper for adding @user mention functionality to Twitter Bootstraps Typeahead plugin
 
-## View the demo <a href="http://jsfiddle.net/jakie8/qCXD5/" target="_blank">here</a>.
+<b>View the demo <a href="http://jsfiddle.net/jakie8/qCXD5/" target="_blank">here</a>.</b>
 
 ## Dependencies
 * <a href="https://github.com/jquery/jquery" target="_blank">jQuery</a>
