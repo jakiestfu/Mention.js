@@ -9,7 +9,7 @@ Lightweight wrapper for adding @user mention functionality to Twitter Bootstraps
 * <a href="https://github.com/twitter/bootstrap" target="_blank">Typeahead</a>
 
 ## Usage
-`````
+`````javascript
 Mention.apply({
     target: "#multi-users",
     users: ["ashley", "roger", "frecklefart123"]
@@ -18,7 +18,7 @@ Mention.apply({
 `````
 
 ## Defaults
-`````
+`````javascript
 Mention.apply({
     target: "", // Element Selector
     users: [], // Array of Usernames to search against
