@@ -10,8 +10,8 @@ Lightweight wrapper for adding @user mention functionality to Twitter Bootstraps
 
 ## Usage
 `````javascript
-Mention.apply({
-    target: "#multi-users",
+$("#multi-users").mention({
+    delimiter: '@',
     users: ["ashley", "roger", "frecklefart123"]
 });
  
@@ -19,8 +19,8 @@ Mention.apply({
 
 ## Defaults
 `````javascript
-Mention.apply({
-    target: "", // Element Selector
+$("#multi-users").mention({
+    delimiter: '@', // Username Delimiter
     users: [], // Array of Usernames to search against
     typeaheadOpts: { // Settings for Typeahead
         matcher: _matcher, // Mention.js's custom matcher function, don't change
