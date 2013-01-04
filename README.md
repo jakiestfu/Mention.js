@@ -1,6 +1,6 @@
 # Mention.js
 
-Lightweight wrapper for adding @user mention functionality to Twitter Bootstraps Typeahead plugin
+Lightweight (min: 2kb, full: 2.8kb) wrapper for adding @user mention functionality to Twitter Bootstraps Typeahead plugin
 
 <b>View the demo <a href="http://jsfiddle.net/jakie8/qCXD5/" target="_blank">here</a>.</b>
 
