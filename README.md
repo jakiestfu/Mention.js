@@ -14,17 +14,35 @@ $("#multi-users").mention({
     delimiter: '@',
     users: ["ashley", "roger", "frecklefart123"]
 });
- 
 `````
+
+## Sensitivity
+`````javascript
+$("#multi-users").mention({
+    sensitive: true,
+    users: ["sarah", "bigRat", "roger", "Ricky"]
+});
+`````
+With sensitivity set to true, items are ordered by the following divisions of priority:
+* Highest: If first letter matches exactly
+* High: If first letter matches regardless of case
+* Med: If target has matching letters' case
+* Low: if target has matching character regardless of case
+
+### Sensitivity Examples:
+If you were to query `"@r"`, with sensitivity on, the resulting list will be `["roger", "Ricky", "sarah", "bigRat"]`, but if you were to query `"@R"`, the resulting list would be `["Ricky", "roger", "bigRat", "sarah"]`
+
 
 ## Defaults
 `````javascript
 $("#multi-users").mention({
-    delimiter: '@', // Username Delimiter
     users: [], // Array of Usernames to search against
+    delimiter: '@', // Username Delimiter
+    sensitive : true,
     typeaheadOpts: { // Settings for Typeahead
         matcher: _matcher, // Mention.js's custom matcher function, don't change
         updater: _updater, // Mention.js's custom updater function, don't change
+        sorter: _sorter, // Mention.js's custom sorter function, don't change
     }
 });
  
