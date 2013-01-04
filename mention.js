@@ -18,7 +18,7 @@
  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
  LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 (function($) {
 	$.fn.extend({
@@ -80,20 +80,25 @@
 				},
 				_sorter = function(items) {
 					if(items.length && settings.sensitive) {
-						var currentUser = _extractCurrentQuery(this.query, this.$element[0].selectionStart).substring(1), i, len = items.length, priorities = [], splices = [];
+						var currentUser = _extractCurrentQuery(this.query, this.$element[0].selectionStart).substring(1), i, len = items.length, priorities = {highest:[],high:[],med:[],low:[]}, finals = [];
 						if(currentUser.length == 1) {
 							for( i = 0; i < len; i++) {
 								if( (items[i][0] == currentUser) ) {
-									priorities.push(items[i]);
-									splices.push(i);
+									priorities.highest.push(items[i]);
+								} else if( (items[i][0].toLowerCase() == currentUser.toLowerCase()) ) {
+									priorities.high.push(items[i]);
+								} else if( items[i].indexOf(currentUser) != -1 ) {
+									priorities.med.push(items[i]);
+								} else {
+									priorities.low.push(items[i]);
 								}
 							}
-							for( i = 0; i < splices.length; i++) {
-								items.splice(splices[i], 1);
+							for(i in priorities){
+								for(var j in priorities[i]){
+									finals.push(priorities[i][j]);
+								}
 							}
-							for( i = 0; i < priorities.length; i++) {
-								items.unshift(priorities[i]);
-							}
+							return finals;
 						}
 					}
 					return items;
