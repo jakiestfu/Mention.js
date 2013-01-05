@@ -58,7 +58,16 @@
 				},
 				_sorter = function(items) {
 					if(items.length && settings.sensitive) {
-						var currentUser = _extractCurrentQuery(this.query, this.$element[0].selectionStart).substring(1), i, len = items.length, priorities = {highest:[],high:[],med:[],low:[]}, finals = [];
+						var currentUser = _extractCurrentQuery(this.query, this.$element[0].selectionStart).substring(1), 
+							i, 
+							len = items.length, 
+							priorities = {
+								highest:[],
+								high:[],
+								med:[],
+								low:[]
+							},
+							finals = [];
 						if(currentUser.length == 1) {
 							for( i = 0; i < len; i++) {
 								if( (items[i][0] == currentUser) ) {
