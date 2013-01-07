@@ -4,17 +4,25 @@ Lightweight (min: 2kb, full: 2.8kb) wrapper for adding @user mention functionali
 
 This enables you to have Twitter-like user mentions in textareas
 
-<b>View the demo <a href="http://jsfiddle.net/jakie8/qCXD5/" target="_blank">here</a>.</b>
+<b>View the demo <a href="http://fiddle.jshell.net/jakie8/sCJZ2/show/" target="_blank">here</a>.</b>
 
 ## Dependencies
 * <a href="https://github.com/jquery/jquery" target="_blank">jQuery</a>
 * <a href="https://github.com/twitter/bootstrap" target="_blank">Typeahead</a>
 
 ## Usage
+The `users` parameter accepts an array of objects. Each object ***must*** have a username key in order for this script to work.
+
 `````javascript
 $("#multi-users").mention({
     delimiter: '@',
-    users: ["ashley", "roger", "frecklefart123"]
+    users: [{
+        username: "ashley"
+    }, { 
+        username: "roger"
+    }, { 
+        username: "frecklefart123"
+    }]
 });
 `````
 
@@ -22,7 +30,15 @@ $("#multi-users").mention({
 `````javascript
 $("#multi-users").mention({
     sensitive: true,
-    users: ["sarah", "bigRat", "roger", "Ricky"]
+    users: [{
+        username: "sarah"
+    }, { 
+        username: "bigRat"
+    }, { 
+        username: "roger"
+    }, { 
+        username: "Ricky"
+    }]
 });
 `````
 With sensitivity set to true, items are ordered by the following divisions of priority:
@@ -35,12 +51,37 @@ With sensitivity set to true, items are ordered by the following divisions of pr
 If you were to query `"@r"`, with sensitivity on, the resulting list will be `["roger", "Ricky", "sarah", "bigRat"]`, but if you were to query `"@R"`, the resulting list would be `["Ricky", "roger", "bigRat", "sarah"]`
 
 
+## Full Names, Images, and Query By
+If you have a `name` and/or `image` key in one of your user objects, there name and image will appear as such in the dropdown list.
+
+The `queryBy` parameter accepts an array of strings that represent keys in your user object that you would like to query against. For example, if you were to type in the `name` "@Scott", the script would match the `username` "@bigCat". `username` is required for this script to work.
+
+`````javascript
+$("#multi-users").mention({
+    queryBy: ['name', 'username'],
+    users: [{
+        username: "sarah",
+        name: "Sarah Jones",
+        image: "http://placekitten.com/25/25"
+    }, { 
+        username: "bigCat",
+        name: "Scott Pfaff",
+        image: "http://placekitten.com/25/25"
+    }, { 
+        username: "coderDude",
+        name: "Roger Penn",
+        image: "http://placekitten.com/25/25"
+    }]
+});
+`````
+
 ## Defaults
 `````javascript
 $("#multi-users").mention({
-    users: [], // Array of Usernames to search against
+    users: [], // Array of Objects
     delimiter: '@', // Username Delimiter
     sensitive : true,
+    queryBy: ['name', 'username'],
     typeaheadOpts: { // Settings for Typeahead
         matcher: _matcher, // Mention.js's custom matcher function, don't change
         updater: _updater, // Mention.js's custom updater function, don't change
