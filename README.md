@@ -6,7 +6,7 @@ Lightweight (min: 1.92kb, full: 4.07kb) wrapper for adding @user mention functio
 
 This enables you to have Twitter-like user mentions in textareas
 
-<b>View the demo <a href="http://fiddle.jshell.net/jakie8/sCJZ2/show/" target="_blank">here</a>.</b>
+<b>View the demo <a href="http://jakiestfu.github.com/Mention.js/" target="_blank">here</a>.</b>
 
 ## Dependencies
 * <a href="https://github.com/jquery/jquery" target="_blank">jQuery</a>
