@@ -1,89 +1,180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Mention.js by jakiestfu</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Mention.js Test</title>
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/jakiestfu/Mention.js">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/jakiestfu/Mention.js/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/jakiestfu/Mention.js/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+	<link rel="stylesheet" type="text/css" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://raw.github.com/jakiestfu/Mention.js/master/recommended-styles.css">
+	
+	<style type='text/css'>
+		body {
+			padding:20px;
+			background: #EEE;
+			color: #252525;
+			text-shadow: 0 1px 0 white;
+			}
 
-    <div class="wrapper">
+		ul {
+			text-shadow:none;
+			}
+		textarea {
+			padding: 8px 15px;
+			background: #fefefe;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			-o-border-radius: 2px;
+			-ms-border-radius: 2px;
+			-khtml-border-radius: 2px;
+			border-radius: 2px;
+			border: 1px solid #999;
+			-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+			-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+			-o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+			box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+			overflow: auto;
+			overflow-y: hidden;
+			color:#444;
+			width:100%;
+			height:100px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			}
+		h2{
+			border-bottom: 1px solid #CCC;
+			margin-bottom: 5px;
+			margin-top: 30px;
+			}
+	</style>
+</head>
+<body>
+	<p>Type in some text below as if you were sending a "tweet". Be sure to try to "mention" someone by typing the @ symbol, then some text</p>
 
-      <section>
-        <div id="title">
-          <h1>Mention.js</h1>
-          <p> Lightweight wrapper for adding @user mention functionality to Twitter Bootstraps Typeahead plugin</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/jakiestfu">jakiestfu</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
+	<hr />
 
-        <h1>Mention.js</h1>
+	<h3>Example #1: Name, Username, &amp; Image</h3>
+	<p>In this example, a full name, image, and username is shown in the resulting list. You can query by username OR full name (try typing @Jenna)</p>
+	<textarea id="full"></textarea>
 
-<p>Lightweight wrapper for adding <a href="https://github.com/user" class="user-mention">@user</a> mention functionality to Twitter Bootstraps Typeahead plugin</p>
+	<h3>Example #2: Name, Username</h3>
+	<p>In this example, a full name and username is shown in the resulting list.</p>
+	<textarea id="med"></textarea>
 
-<p><b>View the demo <a href="http://jsfiddle.net/jakie8/qCXD5/" target="_blank">here</a>.</b></p>
+	<h3>Example #3: Username</h3>
+	<p>In this example, a full name and username is shown in the resulting list. You can <b>only</b> query by typing the username</p>
+	<textarea id="light"></textarea>
+	
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
+	<script type='text/javascript' src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+	<script type='text/javascript' src="https://raw.github.com/jakiestfu/Mention.js/master/mention.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$("#full").mention({
+				users: [{
+					name: 'Lindsay Made',
+					username: 'LindsayM',
+					image: 'http://placekitten.com/25/25'
+				}, {
+					name: 'Rob Dyrdek',
+					username: 'robdyrdek',
+					image: 'http://placekitten.com/25/24'
+				}, {
+					name: 'Rick Bahner',
+					username: 'RickyBahner',
+					image: 'http://placekitten.com/25/23'
+				}, {
+					name: 'Jacob Kelley',
+					username: 'jakiestfu',
+					image: 'http://placekitten.com/25/22'
+				}, {
+					name: 'John Doe',
+					username: 'HackMurphy',
+					image: 'http://placekitten.com/25/21'
+				}, {
+					name: 'Charlie Edmiston',
+					username: 'charlie',
+					image: 'http://placekitten.com/25/20'
+				}, {
+					name: 'Andrea Montoya',
+					username: 'andream',
+					image: 'http://placekitten.com/24/20'
+				}, {
+					name: 'Jenna Talbert',
+					username: 'calisunshine',
+					image: 'http://placekitten.com/23/20'
+				}, {
+					name: 'Street League',
+					username: 'streetleague',
+					image: 'http://placekitten.com/22/20'
+				}, {
+					name: 'Loud Mouth Burrito',
+					username: 'Loudmouthfoods',
+					image: 'http://placekitten.com/21/20'
+				}]
+			});
 
-<h2>Dependencies</h2>
 
-<ul>
-<li><a href="https://github.com/jquery/jquery" target="_blank">jQuery</a></li>
-<li><a href="https://github.com/twitter/bootstrap" target="_blank">Typeahead</a></li>
-</ul><h2>Usage</h2>
+			$("#med").mention({
+				users: [{
+					name: 'Lindsay Made',
+					username: 'LindsayM'
+				}, {
+					name: 'Rob Dyrdek',
+					username: 'robdyrdek'
+				}, {
+					name: 'Rick Bahner',
+					username: 'RickyBahner'
+				}, {
+					name: 'Jacob Kelley',
+					username: 'jakiestfu'
+				}, {
+					name: 'John Doe',
+					username: 'HackMurphy'
+				}, {
+					name: 'Charlie Edmiston',
+					username: 'charlie'
+				}, {
+					name: 'Andrea Montoya',
+					username: 'andream'
+				}, {
+					name: 'Jenna Talbert',
+					username: 'calisunshine'
+				}, {
+					name: 'Street League',
+					username: 'streetleague'
+				}, {
+					name: 'Loud Mouth Burrito',
+					username: 'Loudmouthfoods'
+				}]
+			});
 
-<pre><code>Mention.apply({
-    target: "#multi-users",
-    users: ["ashley", "roger", "frecklefart123"]
-});
-
-</code></pre>
-
-<h2>Defaults</h2>
-
-<pre><code>Mention.apply({
-    target: "", // Element Selector
-    users: [], // Array of Usernames to search against
-    typeaheadOpts: { // Settings for Typeahead
-        matcher: _matcher, // Mention.js's custom matcher function, don't change
-        updater: _updater, // Mention.js's custom updater function, don't change
-    }
-});
-
-</code></pre>
-      </section>
-
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-37030697-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-  </body>
+			$("#light").mention({
+				users: [{
+					username: 'LindsayM'
+				}, {
+					username: 'robdyrdek'
+				}, {
+					username: 'RickyBahner'
+				}, {
+					username: 'jakiestfu'
+				}, {
+					username: 'HackMurphy'
+				}, {
+					username: 'charlie'
+				}, {
+					username: 'andream'
+				}, {
+					username: 'calisunshine'
+				}, {
+					username: 'streetleague'
+				}, {
+					username: 'Loudmouthfoods'
+				}]
+			});
+			
+		});
+	</script>
+</body>
 </html>
