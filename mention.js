@@ -57,16 +57,17 @@
                     var data = this.query,
                         caratPos = this.$element[0].selectionStart,
                         i;
-
+                    
                     for (i = caratPos; i >= 0; i--) {
                         if (data[i] == settings.delimiter) {
                             break;
                         }
                     }
-
-                    var replace = data.substring(i, caratPos);
-                    data = data.replace(replace, settings.delimiter + item);
-
+                    var replace = data.substring(i, caratPos),
+                    	textBefore = data.substring(0, i),
+                    	textAfter = data.substring(caratPos),
+                    	data = textBefore + settings.delimiter + item + textAfter;
+                    	
                     this.tempQuery = data;
 
                     return data;
