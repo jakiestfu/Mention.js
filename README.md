@@ -77,6 +77,19 @@ $("#multi-users").mention({
 });
 `````
 
+## Empty Querying
+You may query for users simply by pressing your delimiter. For example, pressing the @ symbol will return all users that are a part of your users list, so long as those users adhere to the `typeaheadOpts.items` limit
+```javascript
+$('#multi-users').mention({
+    emptyQuery: true,
+    typeaheadOpts: {
+        items: 10 // Max number of items you want to show
+    },
+    users: [...]
+});
+```
+
+
 ## Defaults
 `````javascript
 $("#multi-users").mention({

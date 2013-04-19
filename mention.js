@@ -7,6 +7,7 @@
                 users: [],
                 delimiter: '@',
                 sensitive: true,
+                emptyQuery: false,
                 queryBy: ['name', 'username'],
                 typeaheadOpts: {}
             };
@@ -34,6 +35,16 @@
                 },
                 _matcher = function(itemProps) {
                     var i;
+                    
+                    if(settings.emptyQuery){
+	                    var q = (this.query.toLowerCase()),
+	                    	caratPos = this.$element[0].selectionStart,
+	                    	lastChar = q.slice(caratPos-1,caratPos);
+	                    if(lastChar==settings.delimiter){
+		                    return true;
+	                    }
+                    }
+                    
                     for (i in settings.queryBy) {
                         if (itemProps[settings.queryBy[i]]) {
                             var item = itemProps[settings.queryBy[i]].toLowerCase(),
